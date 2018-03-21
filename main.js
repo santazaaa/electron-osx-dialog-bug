@@ -32,6 +32,25 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  testOpenDialogWithoutBrowserWindowSpecified()
+  // testOpenDialogWithBrowserWindowSpecified()
+}
+
+function testOpenDialogWithoutBrowserWindowSpecified() {
+  console.log('before')
+  electron.dialog.showOpenDialog((paths) => {
+    console.log('open paths:', paths)
+  })
+  console.log('after')
+}
+
+function testOpenDialogWithBrowserWindowSpecified () {
+  console.log('before')
+  electron.dialog.showOpenDialog(mainWindow, (paths) => {
+    console.log('open paths:', paths)
+  })
+  console.log('after')
 }
 
 // This method will be called when Electron has finished
